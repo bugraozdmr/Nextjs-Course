@@ -1,20 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Post from './Post'
 import classes from './PostList.module.css'
-import NewPost from './NewPost'
+import NewPost from '../routes/NewPost'
 import { useState } from 'react';
 import Modal from './Modal';
+import { useLoaderData } from 'react-router-dom'; 
 
-export default function PostList({isPosting,onStopPosting}) {
-    
-    const [posts,setPosts] = useState([]);
+export default function PostList() {
+    const posts = useLoaderData();
 
-    const addPostHandler = (postData) => {
-        // better way he says
-        setPosts((existingPosts) => [postData,...existingPosts]);
-    }
-    
-
+   
   return (
     <>
     {/*modalIsVisible ? <Modal onClose={hideModalHandler}>
@@ -24,18 +19,13 @@ export default function PostList({isPosting,onStopPosting}) {
         />
     </Modal> : null*/}
 
-    {isPosting && <Modal onClose={onStopPosting}>
-        <NewPost 
-            onClose={onStopPosting}
-            onAddPost = {addPostHandler}
-        />
-    </Modal>}
+    
 
 
     {posts.length > 0 && (
         <ul className={classes.posts}>
         {posts.map((value,index) => {
-            return <Post key={index} author={value.author} body={value.body}/>
+            return <Post key={index} id={value.id} author={value.author} body={value.body}/>
         })}
     </ul>
     )}
@@ -46,6 +36,8 @@ export default function PostList({isPosting,onStopPosting}) {
             <p>Start adding some!</p>
         </div>
     )}
+
+    
     </>
   )
 }

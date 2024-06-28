@@ -34,3 +34,7 @@
   .button:hover {
     background-color: #8c6cf7;
   }
+
+  a{
+    text-decoration: none;
+  }

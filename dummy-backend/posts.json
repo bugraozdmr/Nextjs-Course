@@ -1,9 +1,1 @@
-{
-  "posts": [
-    {
-      "body": "This course is hopefully very helpful to you!",
-      "author": "Maximilian",
-      "id": "post-1"
-    }
-  ]
-}
+{"posts":[{"body":"Button","author":"Buttons","id":"0.26589387473730586"},{"body":"Button important","author":"Button","id":"0.2520772642494813"},{"body":"alert","author":"<script>alert(1)</script>","id":"0.4707590930915664"},{"body":"Grant Williams","author":"Grant","id":"0.28229638762914533"},{"body":"Max William","author":"Max","id":"0.37351160057099553"},{"body":"This course is hopefully very helpful to you!","author":"Maximilian","id":"post-1"}]}
