@@ -3,6 +3,20 @@ import classes from './page.module.css'
 import { getMeal } from '@/lib/meals'
 import notFound from '@/app/not-found';
 
+export async function generateMetadata({params}){
+  const meal = getMeal(params.slug);
+
+  if(!meal){
+    notFound();
+  }
+
+  return {
+    title: meal.title,
+    description: meal.summary
+  };
+}
+
+
 // xss önleme icin dangerouslySetInnerHTML
 export default function page({params}) {
   const meal = getMeal(params.slug);
