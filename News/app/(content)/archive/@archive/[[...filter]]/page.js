@@ -74,6 +74,7 @@ async function FilteredNews({year, month}){
 
 
 export default async function FilteredNewsPage({ params }) {
+  // filter yukardaki url'den geliyor -- klosor ismine bak
   const filter = params.filter;
 
   const selectedYear = filter?.[0];
