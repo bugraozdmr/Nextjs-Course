@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 
 import { addMessage } from '@/lib/messages';
+import { revalidatePath, revalidateTag } from 'next/cache';
 
 export default function NewMessagePage() {
   async function createMessage(formData) {
@@ -8,6 +9,12 @@ export default function NewMessagePage() {
 
     const message = formData.get('message');
     addMessage(message);
+
+    //revalidatePath('/messages','layout');
+    // verilen tag icin cacheleme
+    revalidateTag('msg');
+
+    // revalidatePath('/messages');
     redirect('/messages');
   }
 
